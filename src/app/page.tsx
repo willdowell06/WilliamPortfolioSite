@@ -1,10 +1,23 @@
 "use client";
-import { motion } from "framer-motion";
-import { Github, GraduationCap, Linkedin, Mail } from "lucide-react";
+
+import { AnimatePresence, motion } from "framer-motion";
+import { Github, GraduationCap, Linkedin, Mail, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const firstName = "Ethan";
   const lastName = "Savar";
+
+  const navLinks = [
+    { href: "#about", label: "About" },
+    { href: "#experience", label: "Experience" },
+    { href: "#education", label: "Education" },
+    { href: "#projects", label: "Projects" },
+    { href: "#contact", label: "Contact" },
+  ];
+
   const experiences = [
     {
       role: "Incoming Intern",
@@ -55,24 +68,98 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col font-sans bg-gradient-to-b from-blue-950 via-blue-900 to-blue-950 text-white">
       {/* Navbar */}
-      <nav className="flex items-center justify-between px-10 py-6 backdrop-blur-md bg-white/5 border-b border-white/10 sticky top-0 z-50">
+      <nav className="relative flex items-center justify-between px-6 py-6 backdrop-blur-md bg-white/5 border-b border-white/10 sticky top-0 z-50">
         <h1 className="text-xl font-bold tracking-tight">
           <span className="text-blue-400">{firstName}</span> {lastName}
         </h1>
-        <div className="space-x-8 text-sm font-medium">
-          <a href="#about" className="hover:text-blue-300 transition-colors">About</a>
-          <a href="#experience" className="hover:text-blue-300 transition-colors">Experience</a>
-          <a href="#education" className="hover:text-blue-300 transition-colors">Education</a>
-          <a href="#projects" className="hover:text-blue-300 transition-colors">Projects</a>
-          <a href="#contact" className="hover:text-blue-300 transition-colors">Contact</a>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex space-x-8 text-sm font-medium">
+          {navLinks.map((link) => (
+            <a key={link.href} href={link.href} className="hover:text-blue-300 transition-colors">
+              {link.label}
+            </a>
+          ))}
         </div>
+
+        {/* Mobile Hamburger Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden z-50"
+          aria-label="Toggle menu"
+        >
+          <AnimatePresence mode="wait">
+            {isOpen ? (
+              <motion.div
+                key="close"
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <X size={28} />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="menu"
+                initial={{ rotate: 90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: -90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Menu size={28} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </button>
       </nav>
 
-      {/* Hero */}
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+            />
+
+            {/* Sliding Menu */}
+            <motion.div
+              initial={{ y: -100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -100, opacity: 0 }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              className="fixed top-0 left-0 right-0 bg-blue-950/95 backdrop-blur-2xl border-b border-white/20 z-40 pt-24 pb-10 px-8 shadow-2xl md:hidden"
+            >
+              <div className="flex flex-col space-y-8 text-lg font-medium">
+                {navLinks.map((link, i) => (
+                  <motion.a
+                    key={link.href}
+                    href={link.href}
+                    initial={{ opacity: 0, x: -40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    onClick={() => setIsOpen(false)}
+                    className="text-white hover:text-blue-300 transition-colors py-2 border-b border-white/10 last:border-none"
+                  >
+                    {link.label}
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* Hero Section */}
       <main className="flex flex-1 flex-col items-center justify-center text-center px-6 py-20">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           <div className="relative w-32 h-32 mx-auto mb-6 rounded-full border-2 border-blue-400 shadow-lg overflow-hidden bg-blue-800">
-            <img src="/Headshot.JPEG" alt="Profile Picture" className="w-full h-full object-cover" />
+            <img src="/Headshot.JPEG" alt="Profile" className="w-full h-full object-cover" />
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-4">
             Hi, I'm <span className="text-blue-400">{firstName}</span>.
@@ -81,13 +168,17 @@ export default function Home() {
             I'm a Software Engineer and Researcher passionate about applying mathematical and statistical methods to data. My research
             interests are in Complexity Theory, Algorithms, Machine Learning, Differential Equations, Applied Statistics and Randomness.
           </p>
-          <a href="/SavarEthanResume.pdf" download className="inline-block bg-blue-600 px-6 py-3 rounded-full text-white font-medium hover:bg-blue-700 transition">
+          <a
+            href="/SavarEthanResume.pdf"
+            download
+            className="inline-block bg-blue-600 px-6 py-3 rounded-full text-white font-medium hover:bg-blue-700 transition"
+          >
             Download Resume
           </a>
         </motion.div>
       </main>
 
-      {/* Experience Section */}
+      {/* Experience */}
       <section id="experience" className="px-10 py-24 bg-blue-800/40 backdrop-blur-xl border-y border-white/10">
         <h2 className="text-3xl font-bold text-center mb-12">Experience</h2>
         <div className="mx-auto max-w-4xl relative">
@@ -122,60 +213,47 @@ export default function Home() {
         </div>
       </section>
 
-            {/* Education Section */}
-            <section id="education" className="px-10 py-24 bg-gradient-to-b from-purple-900/20 via-indigo-900/20 to-blue-950">
-              <h2 className="text-3xl font-bold text-center mb-16 bg-gradient-to-r from-white to-white bg-clip-text text-transparent">
-                Education
-              </h2>
-
-              <div className="mx-auto max-w-3xl">
-                {education.map((edu, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="group relative bg-white/5 backdrop-blur-lg border border-indigo-500/10 rounded-xl p-6 mb-6 hover:bg-white/10 hover:border-blue-400/50 transition-all duration-300"
-                  >
-                    <div className="flex items-start gap-5">
-                      {/* School Logo – Compact */}
-                      <div className="w-14 h-14 rounded-lg bg-white shadow-lg overflow-hidden border-2 border-black-600 flex-shrink-0">
-                        {edu.logo ? (
-                          <img
-                            src={edu.logo}
-                            alt={`${edu.school} logo`}
-                            className="w-full h-full object-cover"
-                            draggable={false}
-                          />
-                        ) : (
-                          <GraduationCap className="w-full h-full p-3 text-indigo-600" />
-                        )}
-                      </div>
-
-                      {/* Content */}
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-white-300">{edu.degree}</h3>
-                        <p className="text-lg font-medium text-white mt-0.5">{edu.school}</p>
-
-                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-sm">
-                          <span className="text-blue-400 font-medium">{edu.location}</span>
-                          <span className="text-gray-500">•</span>
-                          <span className="text-gray-400">{edu.dates}</span>
-                        </div>
-
-                        <div className="mt-3 flex flex-wrap gap-3 text-sm">
-                          <span className="px-3 py-1 bg-blue-500/20 text-gray-300 rounded-full font-medium">
-                            {edu.gpa}
-                          </span>
-                          <span className="text-gray-300">{edu.honors}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
+      {/* Education */}
+      <section id="education" className="px-10 py-24 bg-gradient-to-b from-purple-900/20 via-indigo-900/20 to-blue-950">
+        <h2 className="text-3xl font-bold text-center mb-16 bg-gradient-to-r from-white to-white bg-clip-text text-transparent">
+          Education
+        </h2>
+        <div className="mx-auto max-w-3xl">
+          {education.map((edu, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="group relative bg-white/5 backdrop-blur-lg border border-indigo-500/10 rounded-xl p-6 mb-6 hover:bg-white/10 hover:border-blue-400/50 transition-all duration-300"
+            >
+              <div className="flex items-start gap-5">
+                <div className="w-14 h-14 rounded-lg bg-white shadow-lg overflow-hidden border-2 border-black-600 flex-shrink-0">
+                  {edu.logo ? (
+                    <img src={edu.logo} alt={`${edu.school} logo`} className="w-full h-full object-cover" draggable={false} />
+                  ) : (
+                    <GraduationCap className="w-full h-full p-3 text-indigo-600" />
+                  )}
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-white-300">{edu.degree}</h3>
+                  <p className="text-lg font-medium text-white mt-0.5">{edu.school}</p>
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-sm">
+                    <span className="text-blue-400 font-medium">{edu.location}</span>
+                    <span className="text-gray-500">•</span>
+                    <span className="text-gray-400">{edu.dates}</span>
+                  </div>
+                  <div className="mt-3 flex flex-wrap gap-3 text-sm">
+                    <span className="px-3 py-1 bg-blue-500/20 text-gray-300 rounded-full font-medium">{edu.gpa}</span>
+                    <span className="text-gray-300">{edu.honors}</span>
+                  </div>
+                </div>
               </div>
-            </section>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
       {/* Projects */}
       <section id="projects" className="px-10 py-24 bg-blue-950/40 backdrop-blur-sm">
@@ -183,7 +261,7 @@ export default function Home() {
         <div className="grid gap-10 md:grid-cols-3 max-w-6xl mx-auto">
           {[
             { title: "Data For Good Hackathon Winner 2025", desc: "Built an analytics dashboard serving educational nonprofit in Python and Tableau" },
-            { title: "AutoTex", desc: "Application that converts text and handwritten notes into LaTeX documents using OcR and LLM models in React and Python" },
+            { title: "AutoTex", desc: "Application that converts text and handwritten notes into LaTeX documents using OCR and LLM models in React and Python" },
             { title: "GroupViz", desc: "Interactive visualizer to simulate Dihedral Group actions up to D(12) and generate Cayley Graphs using Python" },
           ].map((project, i) => (
             <motion.div
