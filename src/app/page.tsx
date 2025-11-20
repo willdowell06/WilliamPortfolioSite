@@ -44,7 +44,7 @@ export default function Home() {
       location: "Columbus, OH",
       logo: "/OSULogo.png",
       gpa: "GPA: 3.62 / 4.0",
-      dates: "2022 – 2026 (Expected)",
+      dates: "2022 – 2026",
       honors: "Dean's List • College of Engineering",
     },
   ];
