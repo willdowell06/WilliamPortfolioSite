@@ -73,7 +73,7 @@ export default function Home() {
     {
       title: "Air Motor",
       desc:
-        "Machined a precision piston–cylinder assembly from raw stock...",
+        "Machined a precision piston–cylinder assembly",
       images: [
         "/placeholder4.png",
         "/placeholder5.png",
