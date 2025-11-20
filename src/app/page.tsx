@@ -49,8 +49,15 @@ export default function Home() {
     },
   ];
 
-  const [activeProject, setActiveProject] = useState(null);
+  type Project = {
+    title: string;
+    desc: string;
+    images: string[];
+  };
+
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [imageIndex, setImageIndex] = useState(0);
+
 
   const projectData = [
     {
