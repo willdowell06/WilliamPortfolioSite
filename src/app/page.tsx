@@ -49,10 +49,6 @@ export default function Home() {
     },
   ];
 
-  // ---------------------
-  // PROJECT + MODAL STATE
-  // ---------------------
-
   const [activeProject, setActiveProject] = useState(null);
   const [imageIndex, setImageIndex] = useState(0);
 
@@ -81,9 +77,8 @@ export default function Home() {
       desc:
         "Built an Arduino-based garage door sensing system with mechanical, electrical, and software integration...",
       images: [
-        "/placeholder6.png",
-        "/placeholder7.png",
-        "/placeholder8.png",
+        "/Garage1.png",
+        "/Garage2.png",
       ],
     },
   ];
