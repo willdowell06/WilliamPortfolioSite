@@ -24,11 +24,11 @@ export default function Home() {
       company: "Sloan Valve Company",
       location: "Chicago, IL",
       logo: "/SloanLogo.png",
-      desc: "Designed and optimized workflow for CNC machining cell, conducted material flow analysis",
+      desc: "Designed and optimized machining cells for both safety and efficiency",
       dates: "May 2025 - August 2025",
     },
     {
-      role: "Instrument Technician Intern",
+      role: "Field Instrument Technician Intern",
       company: "Field Environmental Instruments",
       location: "Chicago, IL",
       logo: "/FieldLogo.png",
@@ -43,7 +43,7 @@ export default function Home() {
       school: "The Ohio State University",
       location: "Columbus, OH",
       logo: "/OSULogo.png",
-      gpa: "GPA: 3.62 / 4.0",
+      gpa: "GPA: 3.65 / 4.0",
       dates: "2022 – 2026",
       honors: "Dean's List • College of Engineering",
     },
@@ -63,7 +63,7 @@ export default function Home() {
     {
       title: "DV1 Mill Guarding",
       desc:
-        "Designed and improved 80/20 aluminum extrusion guarding in collaboration with operators and maintenance...",
+        "Worked cross-functionally with operators and maintenance to design, build, and implement guarding for a DV1 mill.",
       images: [
         "/placeholder1.png",
         "/placeholder2.png",
@@ -73,7 +73,7 @@ export default function Home() {
     {
       title: "Air Motor",
       desc:
-        "Machined a precision piston–cylinder assembly",
+        "Machined a precision piston–cylinder assembly using proper geometric dimensioning and tolerancing",
       images: [
         "/placeholder4.png",
         "/placeholder5.png",
@@ -82,7 +82,7 @@ export default function Home() {
     {
       title: "Garage Door Sensor/Remote",
       desc:
-        "Built an Arduino-based garage door sensing system with mechanical, electrical, and software integration...",
+        "Built an Arduino-based adaptive garage door sensing system with mechanical, electrical, and software integration",
       images: [
         "/Garage1.png",
         "/Garage2.png",
@@ -217,7 +217,7 @@ export default function Home() {
           </h1>
 
           <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-          I’m a Mechanical Engineer with a passion for product design, precision manufacturing, and transforming ideas into functional systems. I love working at the intersection of creativity and engineering such as developing mechanical designs or refining products for manufacturability and hands-on fabrication. I’m driven by curiosity, and a desire to build well-engineered products.
+          I’m a mechanical engineer with a passion for product design, prototyping, and creating value for the stakeholder. I love working at the intersection of user-centered design and precision engineering. My unique courseload and experience have given me the skills to not only optomize user satisfaction, but also drive measurable business success.   
 
           </p>
 
