@@ -66,7 +66,7 @@ export default function Home() {
         "Worked cross-functionally with operators and maintenance to design, build, and implement guarding for a horizontal mill.",
       images: [
         "/dv1guarding.jpg",
-        "/guardingfwg.jpg",
+        "/guardingdwg.jpg",
         
       ],
     },
