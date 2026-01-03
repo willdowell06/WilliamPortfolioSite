@@ -63,11 +63,11 @@ export default function Home() {
     {
       title: "DV1 Mill Guarding",
       desc:
-        "Worked cross-functionally with operators and maintenance to design, build, and implement guarding for a DV1 mill.",
+        "Worked cross-functionally with operators and maintenance to design, build, and implement guarding for a horizontal mill.",
       images: [
-        "/placeholder1.png",
-        "/placeholder2.png",
-        "/placeholder3.png",
+        "/dv1guarding.jpg",
+        "/guardingfwg.jpg",
+        
       ],
     },
     {
