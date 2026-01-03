@@ -213,7 +213,7 @@ export default function Home() {
           </div>
 
           <h1 className="text-5xl md:text-6xl font-bold mb-4">
-            Hi, I'm <span className="text-green-400">Will</span>!
+            Hi, I'm <span className="text-green-400">William</span>!
           </h1>
 
           <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
