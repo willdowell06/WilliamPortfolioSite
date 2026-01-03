@@ -24,7 +24,7 @@ export default function Home() {
       company: "Sloan Valve Company",
       location: "Chicago, IL",
       logo: "/SloanLogo.png",
-      desc: "Designed and optimized machining cells for both safety and efficiency",
+      desc: "Designed and optimized machining cells for both safety and efficiency in the plant",
       dates: "May 2025 - August 2025",
     },
     {
@@ -32,7 +32,7 @@ export default function Home() {
       company: "Field Environmental Instruments",
       location: "Chicago, IL",
       logo: "/FieldLogo.png",
-      desc: "Calibrated and repaired defects with Testo 350 and JUM 3-500 gas analyzers for environmental compliance testing",
+      desc: "Calibrated and repaired defects with hydrocarbon gas analyzers for environmental compliance testing",
       dates: "June 2024 - August 2024",
     },
   ];
