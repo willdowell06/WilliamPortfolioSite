@@ -71,12 +71,12 @@ export default function Home() {
       ],
     },
     {
-      title: "Air Motor",
+      title: "Hockey Puck Launcher",
       desc:
-        "Machined a precision piston–cylinder assembly using proper geometric dimensioning and tolerancing",
+        "Designed and prototyped the load mechanism for an automatic puck-passer to help young hockey players develop their skills.",
       images: [
-        "/placeholder4.png",
-        "/placeholder5.png",
+        "/loadmech1.png",
+        "/loadmech2.png",
       ],
     },
     {
@@ -84,8 +84,8 @@ export default function Home() {
       desc:
         "Built an Arduino-based adaptive garage door sensing system with mechanical, electrical, and software integration",
       images: [
-        "/Garage1.png",
         "/Garage2.png",
+        "/Garage1.png",
       ],
     },
   ];
