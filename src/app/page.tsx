@@ -91,7 +91,7 @@ export default function Home() {
         {
       title: "Garage Door Sensor/Remote",
       desc:
-        "Built an low-fidelity Arduino-based adaptive garage door sensing system with mechanical, electrical, and software integration",
+        "Built an low-fidelity Arduino-based adaptive garage door sensing system with mechanical, electrical, and software integration.",
       images: [
         "/Garage2.png",
         "/Garage1.png",
@@ -100,10 +100,18 @@ export default function Home() {
     {
       title: "Air Motor",
       desc:
-        "Machined a piston and cylinder using proper geometric dimensioning and tolerancing",
+        "Machined a piston and cylinder using proper geometric dimensioning and tolerancing.",
       images: [
         "/airmotor1.png",
         "/airmotor2.png",
+      ],
+    },
+    {
+      title: "Over-the-Door Organizer",
+      desc:
+        "Designed and prototyped an over-the-door organizer to help students at college reduce clutter and improve mental health.",
+      images: [
+        "/orgprototype.png",
       ],
     },
   ];
