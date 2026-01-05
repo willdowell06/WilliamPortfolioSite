@@ -245,7 +245,7 @@ export default function Home() {
           </h1>
 
           <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-          I’m a mechanical engineer with a passion for product design, prototyping, and creating value for the stakeholder. I love working at the intersection of user-centered design and precision engineering. My unique courseload and experience have given me the skills to not only optomize user satisfaction, but also drive measurable business success.   
+          I’m a mechanical engineer with a passion for product design, prototyping, and creating value for the stakeholder. I love working at the intersection of user-centered design and precision engineering. My unique courseload and experience have given me the skills to not only optimize user satisfaction, but also drive measurable business success.   
           </p>
 
           <a
