@@ -97,6 +97,15 @@ export default function Home() {
         "/Garage1.png",
       ],
     },
+    {
+      title: "Air Motor",
+      desc:
+        "Machined a piston and cylinder using proper geometric dimensioning and tolerancing",
+      images: [
+        "/airmotor1.png",
+        "/airmotor2.png",
+      ],
+    },
   ];
 
   const nextImage = () => {
