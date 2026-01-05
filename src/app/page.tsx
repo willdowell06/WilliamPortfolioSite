@@ -112,6 +112,9 @@ export default function Home() {
         "Designed and prototyped an over-the-door organizer to help students at college reduce clutter and improve mental health.",
       images: [
         "/orgprototype.png",
+        "/orgcad.png",
+        "/orgbrainstorm.jpg",
+
       ],
     },
   ];
