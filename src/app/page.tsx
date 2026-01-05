@@ -80,9 +80,18 @@ export default function Home() {
       ],
     },
     {
+      title: "Spur Gear Test Box",
+      desc:
+        "Designed and modeled a test box to determine the life cycle of spur gears for industrial agitators used in food production and chemical processing.",
+      images: [
+        "/gearbox1.png",
+        "/gearbox2.png",
+      ],
+    },
+        {
       title: "Garage Door Sensor/Remote",
       desc:
-        "Built an Arduino-based adaptive garage door sensing system with mechanical, electrical, and software integration",
+        "Built an low-fidelity Arduino-based adaptive garage door sensing system with mechanical, electrical, and software integration",
       images: [
         "/Garage2.png",
         "/Garage1.png",
