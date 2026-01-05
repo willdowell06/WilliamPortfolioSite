@@ -234,7 +234,7 @@ export default function Home() {
         >
           <div className="relative w-32 h-32 mx-auto mb-6 rounded-full border-2 border-green-400 shadow-lg overflow-hidden bg-green-800">
             <img
-              src="/IMG_4311.jpg"
+              src="/hed.jpg"
               alt="Profile"
               className="w-full h-full object-cover"
             />
